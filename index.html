@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eadystart</title>
+    <script src="https://kit.fontawesome.com/896aa2e142.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+        function get(){
+            let txt = document.getElementById("search-txt").value
+            if (txt.trim() == ''){
+                alert('尚未输入内容!')
+                return false;
+            }
+            else{
+                window.open(("https://www.baidu.com/s?wd="+txt),"_blank")
+            }
+            document.getElementById("search-txt").value = ""
+        }
+        function pressget(){
+            let txt = document.getElementById("search-txt").value
+            let code = event.keyCode;
+            if (txt.trim() != ''){
+                if (code == 13){
+                    window.open(("https://www.baidu.com/s?wd="+txt),"_blank")
+                    document.getElementById("search-txt").value = ""
+                }
+
+            }
+
+        }
+        function geturl(){
+            let url = document.getElementById("url-txt").value
+            if (url.trim() == ''){
+
+                alert('请输入URL!')
+                return false
+            }
+            else {
+                window.open("https://www."+url,"_blank")
+            }
+            document.getElementById("url-txt").value = ""
+        }
+
+        function pressurl(){
+            let url = document.getElementById("url-txt").value
+            let code = event.keyCode;
+            if (url.trim() != ''){
+                if (code == 13){
+                    window.open("https://www."+url,"_blank")
+                    document.getElementById("url-txt").value = ""
+                }
+            }
+
+
+        }
+    </script>
+
+</head>
+<body style="background-image: url(bg.jpeg)">
+    <h1 id="easystart">EasyStart</h1>
+    <h3 id="a">简洁 美观</h3>
+    <div class="url-box">
+        <input id="url-txt" type="text" name="" placeholder="Type URL" onkeydown="pressurl()">
+        <button id="url-btn" onclick="geturl()">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+    </div>
+
+    <div class="search-box">
+        <input id="search-txt" type="text" name="" placeholder="Type to search" onkeydown="pressget()">
+        <button id="search-btn" onclick="get()">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+    </div>
+
+
+</body>
+</html>
